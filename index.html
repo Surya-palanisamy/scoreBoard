@@ -7,26 +7,31 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Auction Scoreboard</h1>
-        <form id="scoreForm">
-            <input type="text" id="name" placeholder="Enter Name" required>
-            <input type="number" id="score" placeholder="Enter Score" required>
-            <button type="submit">Add/Update Score</button>
-        </form>
-        <table id="scoreTable">
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Name</th>
-                    <th>Score</th>
-                </tr>
-            </thead>
-            <tbody id="scoreBody">
-                <!-- Dynamically added rows go here -->
-            </tbody>
-        </table>
+    <h1>Auction Event Scoreboard</h1>
+
+    <div style="text-align: center; margin-bottom: 20px;">
+        <button id="resetButton" onclick="resetParticipants()">Reset All Data</button>
     </div>
+
+    <form id="scoreForm">
+        <input type="text" id="name" placeholder="Participant Name" required>
+        <input type="number" id="score" placeholder="Points (+/-)" required>
+        <button type="submit">Add/Update Score</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Score</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="scoreBody">
+            <!-- Dynamic rows will be added here -->
+        </tbody>
+    </table>
 
     <script src="app.js"></script>
 </body>

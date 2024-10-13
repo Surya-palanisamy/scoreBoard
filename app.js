@@ -85,6 +85,15 @@ function deleteParticipant(name) {
   updateTable();
 }
 
+// Function to reset all participants
+function resetParticipants() {
+  if (confirm("Are you sure you want to reset all scores?")) {
+    participants = []; // Clear the participants array
+    localStorage.removeItem("participants"); // Remove from localStorage
+    updateTable(); // Update the table
+  }
+}
+
 // Load participants from localStorage when the page loads
 function loadParticipants() {
   const storedParticipants = localStorage.getItem("participants");

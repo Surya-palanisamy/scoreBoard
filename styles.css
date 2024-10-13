@@ -77,3 +77,18 @@ form button:hover {
 .delete-button:hover {
     background-color: darkred; /* Darker red on hover */
 }
+/* Style for reset button */
+#resetButton {
+    padding: 10px 20px;
+    background-color: orange; /* Orange background */
+    color: white;            /* White text */
+    border: none;            /* No border */
+    border-radius: 4px;     /* Rounded corners */
+    cursor: pointer;         /* Pointer cursor on hover */
+    font-size: 16px;         /* Font size */
+    transition: background-color 0.3s; /* Smooth background change */
+}
+
+#resetButton:hover {
+    background-color: darkorange; /* Darker orange on hover */
+}
