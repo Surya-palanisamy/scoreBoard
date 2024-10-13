@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auction Scoreboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Auction Scoreboard</h1>
+        <form id="scoreForm">
+            <input type="text" id="name" placeholder="Enter Name" required>
+            <input type="number" id="score" placeholder="Enter Score" required>
+            <button type="submit">Add/Update Score</button>
+        </form>
+        <table id="scoreTable">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody id="scoreBody">
+                <!-- Dynamically added rows go here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
