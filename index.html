@@ -1,38 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Auction Scoreboard</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
     <h1>Auction Event Scoreboard</h1>
 
-    <div style="text-align: center; margin-bottom: 20px;">
-        <button id="resetButton" onclick="resetParticipants()">Reset All Data</button>
+    <div class="button-container">
+      <button id="resetButton" onclick="resetParticipants()">
+        Reset All Data
+      </button>
     </div>
 
     <form id="scoreForm">
-        <input type="text" id="name" placeholder="Participant Name" required>
-        <input type="number" id="score" placeholder="Points (+/-)" required>
-        <button type="submit">Add/Update Score</button>
+      <input type="text" id="name" placeholder="Participant Name" required />
+      <input type="number" id="score" placeholder="Points (+/-)" required />
+      <button type="submit">Add/Update Score</button>
     </form>
 
-    <table>
+    <div class="table-container">
+      <table>
         <thead>
-            <tr>
-                <th>Rank</th>
-                <th>Name</th>
-                <th>Score</th>
-                <th>Action</th>
-            </tr>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Score</th>
+            <th>Action</th>
+          </tr>
         </thead>
         <tbody id="scoreBody">
-            <!-- Dynamic rows will be added here -->
+          <!-- Dynamic rows will be added here -->
         </tbody>
-    </table>
+      </table>
+    </div>
 
     <script src="app.js"></script>
-</body>
+  </body>
 </html>

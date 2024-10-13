@@ -1,110 +1,110 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
 }
 
 h1 {
-    text-align: center;
-    margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .button-container {
-    text-align: center;
-    margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 #resetButton {
-    background-color: orange;
-    color: white;
+  background-color: orange;
+  color: white;
 }
 
 #resetButton:hover {
-    background-color: darkorange;
+  background-color: darkorange;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 form input[type="text"],
 form input[type="number"] {
-    padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 100%;
-    max-width: 300px; /* Set max width for inputs */
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 300px; /* Set max width for inputs */
 }
 
 form button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
 }
 
 form button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 .table-container {
-    overflow-x: auto; /* Enable horizontal scrolling on small screens */
+  overflow-x: auto; /* Enable horizontal scrolling on small screens */
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background-color: white;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: white;
 }
 
 th,
 td {
-    padding: 12px;
-    text-align: left;
-    border: 1px solid #ccc;
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ccc;
 }
 
 th {
-    background-color: #007bff;
-    color: white;
+  background-color: #007bff;
+  color: white;
 }
 
 tr:nth-child(even) {
-    background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 
 tr:hover {
-    background-color: #d1ecf1;
+  background-color: #d1ecf1;
 }
 
 /* Style for delete button */
 .delete-button {
-    background-color: red;  /* Red background */
-    color: white;           /* White text */
-    border: none;           /* No border */
-    border-radius: 50%;     /* Circular shape */
-    width: 30px;            /* Width */
-    height: 30px;           /* Height */
-    cursor: pointer;        /* Pointer cursor on hover */
-    font-size: 18px;        /* Font size */
-    transition: background-color 0.3s; /* Smooth background change */
+  background-color: red;
+  color: white;
+  border: none; /* No border */
+  border-radius: 50%; /* Circular shape */
+  width: 30px; /* Width */
+  height: 30px; /* Height */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 18px; /* Font size */
+  transition: background-color 0.3s;
 }
 
 .delete-button:hover {
-    background-color: darkred; /* Darker red on hover */
+  background-color: darkred;
 }
