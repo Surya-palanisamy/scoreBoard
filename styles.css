@@ -95,11 +95,7 @@ tr:hover {
 /* Style for delete button */
 .delete-button {
   background-color: red;
-  color: white;
-  border: none; /* No border */
-  border-radius: 50%; /* Circular shape */
-  width: 30px; /* Width */
-  height: 30px; /* Height */
+  border-radius: 20%;
   cursor: pointer; /* Pointer cursor on hover */
   font-size: 18px; /* Font size */
   transition: background-color 0.3s;
