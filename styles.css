@@ -1,74 +1,79 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.container {
-    text-align: center;
-    background-color: #fff;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
 }
 
 h1 {
-    margin-bottom: 20px;
-    color: #333;
-}
-
-form {
-    margin-bottom: 20px;
-}
-
-input {
-    padding: 10px;
-    margin: 5px;
-    width: 200px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #0056b3;
+    text-align: center;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 20px;
 }
 
 th, td {
-    padding: 10px;
+    padding: 12px;
+    text-align: left;
     border: 1px solid #ccc;
-    text-align: center;
 }
 
-thead {
+th {
     background-color: #007bff;
-    color: #fff;
+    color: white;
 }
 
-tbody tr:nth-child(even) {
-    background-color: #f4f4f9;
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #d1ecf1;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+form input[type="text"],
+form input[type="number"] {
+    padding: 10px;
+    margin: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* Style for delete button */
+.delete-button {
+    background-color: red;  /* Red background */
+    color: white;           /* White text */
+    border: none;           /* No border */
+    border-radius: 50%;     /* Circular shape */
+    width: 30px;            /* Width */
+    height: 30px;           /* Height */
+    cursor: pointer;        /* Pointer cursor on hover */
+    font-size: 18px;        /* Font size */
+    transition: background-color 0.3s; /* Smooth background change */
+}
+
+.delete-button:hover {
+    background-color: darkred; /* Darker red on hover */
 }
