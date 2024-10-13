@@ -1,19 +1,19 @@
 // Array to hold participants and scores
 let participants = [];
 
-// Function to add/update participant score
-function addOrUpdateParticipant(name, score) {
+// Function to add/update participant score dynamically
+function addOrUpdateParticipant(name, scoreChange) {
   // Check if participant already exists
   const index = participants.findIndex(
     (participant) => participant.name === name
   );
 
   if (index !== -1) {
-    // Update score if participant exists
-    participants[index].score = score;
+    // Update score by adding the new scoreChange to the existing score
+    participants[index].score += scoreChange;
   } else {
-    // Add new participant
-    participants.push({ name, score });
+    // Add new participant with the initial score
+    participants.push({ name, score: scoreChange });
   }
 
   // Sort participants by score in descending order
@@ -64,10 +64,10 @@ document.getElementById("scoreForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
   const name = document.getElementById("name").value;
-  const score = parseInt(document.getElementById("score").value);
+  const scoreChange = parseInt(document.getElementById("score").value); // This can be positive or negative
 
-  if (name && !isNaN(score)) {
-    addOrUpdateParticipant(name, score);
+  if (name && !isNaN(scoreChange)) {
+    addOrUpdateParticipant(name, scoreChange);
   }
 
   // Clear input fields
