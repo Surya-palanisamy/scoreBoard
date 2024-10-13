@@ -7,15 +7,73 @@ body {
 
 h1 {
     text-align: center;
+    margin-bottom: 20px;
+}
+
+.button-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#resetButton {
+    background-color: orange;
+    color: white;
+}
+
+#resetButton:hover {
+    background-color: darkorange;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+form input[type="text"],
+form input[type="number"] {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 300px; /* Set max width for inputs */
+}
+
+form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+.table-container {
+    overflow-x: auto; /* Enable horizontal scrolling on small screens */
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    background-color: white;
 }
 
-th, td {
+th,
+td {
     padding: 12px;
     text-align: left;
     border: 1px solid #ccc;
@@ -34,33 +92,6 @@ tr:hover {
     background-color: #d1ecf1;
 }
 
-form {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-form input[type="text"],
-form input[type="number"] {
-    padding: 10px;
-    margin: 0 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-form button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-form button:hover {
-    background-color: #0056b3;
-}
-
 /* Style for delete button */
 .delete-button {
     background-color: red;  /* Red background */
@@ -76,19 +107,4 @@ form button:hover {
 
 .delete-button:hover {
     background-color: darkred; /* Darker red on hover */
-}
-/* Style for reset button */
-#resetButton {
-    padding: 10px 20px;
-    background-color: orange; /* Orange background */
-    color: white;            /* White text */
-    border: none;            /* No border */
-    border-radius: 4px;     /* Rounded corners */
-    cursor: pointer;         /* Pointer cursor on hover */
-    font-size: 16px;         /* Font size */
-    transition: background-color 0.3s; /* Smooth background change */
-}
-
-#resetButton:hover {
-    background-color: darkorange; /* Darker orange on hover */
 }
