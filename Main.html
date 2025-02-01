@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auction Scoreboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 p-4">
+    <h1 class="text-center text-2xl font-bold mb-4">Auction Scoreboard</h1>
+    <div class="flex flex-col md:flex-row justify-center gap-4 mb-4">
+      <button id="resetButton" class="bg-orange-500 text-white px-4 py-2 rounded" onclick="resetTeams()">Reset All Data</button>
+      <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="exportData()">Export Data</button>
+    </div>
+    <div class="flex justify-center mb-4">
+      <input type="text" id="searchInput" class="p-2 border rounded" placeholder="Search Team by Name" onkeyup="searchTeam()" />
+    </div>
+    <div class="flex justify-center mb-4">
+      <input type="text" id="newTeamInput" class="p-2 border rounded" placeholder="Enter new team name" />
+      <button class="bg-green-500 text-white px-4 py-2 rounded ml-2" onclick="addNewTeam()">Add New Team</button>
+    </div>
+    <div class="flex justify-center mb-4">
+      <input type="text" id="bidInput" class="p-2 border rounded" placeholder="Bid Points" />
+      <button class="bg-purple-500 text-white px-4 py-2 rounded ml-2" onclick="placeBid()">Place Bid</button>
+    </div>
+    <div id="errorMessage" class="text-red-500 text-center mb-4"></div>
+    <div class="overflow-x-auto">
+      <table class="w-full border-collapse bg-white">
+        <thead>
+          <tr class="bg-blue-500 text-white">
+            <th class="p-2">Rank</th>
+            <th class="p-2">Team Name</th>
+            <th class="p-2">Points</th>
+            <th class="p-2">Bid</th>
+            <th class="p-2">Action</th>
+          </tr>
+        </thead>
+        <tbody id="scoreBody"></tbody>
+      </table>
+    </div>
+    <script>
+      let teams = JSON.parse(localStorage.getItem("teams")) || [
+        { name: "Team A", points: 100, bid: 0 },
+        { name: "Team B", points: 100, bid: 0 },
+        { name: "Team C", points: 100, bid: 0 },
+      ];
+      let lastState = JSON.parse(JSON.stringify(teams));
+
+      function saveAndUpdate() {
+        localStorage.setItem("teams", JSON.stringify(teams));
+        updateTable();
+      }
+
+      function updateTable() {
+        lastState = JSON.parse(JSON.stringify(teams));
+        const tbody = document.getElementById("scoreBody");
+        tbody.innerHTML = "";
+        teams.sort((a, b) => b.points - a.points);
+        teams.forEach((team, index) => {
+          const row = document.createElement("tr");
+          if (index === 0) row.classList.add("bg-yellow-300");
+          row.innerHTML = `
+            <td class="p-2 border">${index + 1}</td>
+            <td class="p-2 border">${team.name}</td>
+            <td class="p-2 border">${team.points}</td>
+            <td class="p-2 border">${team.bid}</td>
+            <td class="p-2 border">
+              <button class="bg-green-500 text-white px-2 py-1 rounded" onclick="handleAnswer('${team.name}', true)">Correct</button>
+              <button class="bg-red-500 text-white px-2 py-1 rounded ml-2" onclick="handleAnswer('${team.name}', false)">Wrong</button>
+            </td>
+          `;
+          tbody.appendChild(row);
+        });
+      }
+
+      function addNewTeam() {
+        const newTeamName = document.getElementById("newTeamInput").value.trim();
+        if (newTeamName && !teams.some((t) => t.name.toLowerCase() === newTeamName.toLowerCase())) {
+          teams.push({ name: newTeamName, points: 100, bid: 0 });
+          document.getElementById("newTeamInput").value = "";
+          saveAndUpdate();
+          clearError();
+        } else {
+          showError("Please enter a valid team name or team already exists.");
+        }
+      }
+
+      function placeBid() {
+        const bid = parseInt(document.getElementById("bidInput").value.trim());
+        if (isNaN(bid) || bid <= 0) {
+          showError("Invalid bid. Please enter a positive number.");
+          return;
+        }
+        const teamName = prompt("Enter the team name (e.g., Team A):");
+        const team = teams.find((t) => t.name.toLowerCase() === teamName.toLowerCase());
+        if (!team) {
+          showError("Team not found.");
+          return;
+        }
+        if (bid > team.points) {
+          showError("Bid cannot exceed available points.");
+          return;
+        }
+        team.bid = bid;
+        saveAndUpdate();
+        clearError();
+      }
+
+      function handleAnswer(teamName, isCorrect) {
+        const team = teams.find((t) => t.name === teamName);
+        if (!team || team.bid === 0) return;
+
+        if (isCorrect) {
+          team.points += team.bid;
+        } else {
+          team.points -= team.bid;
+          teams.forEach((t) => {
+            if (t.name !== teamName) {
+              t.points += 100;
+            }
+          });
+        }
+        team.bid = 0;
+        saveAndUpdate();
+      }
+
+      function searchTeam() {
+        const searchTerm = document.getElementById("searchInput").value.toLowerCase();
+        const filteredTeams = teams.filter((team) => team.name.toLowerCase().includes(searchTerm));
+        teams = searchTerm ? filteredTeams : JSON.parse(localStorage.getItem("teams")) || [];
+        updateTable();
+      }
+
+      function showError(message) {
+        document.getElementById("errorMessage").textContent = message;
+      }
+
+      function clearError() {
+        document.getElementById("errorMessage").textContent = "";
+      }
+
+      updateTable();
+    </script>
+  </body>
+</html>
